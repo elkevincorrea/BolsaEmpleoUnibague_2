@@ -1,0 +1,28 @@
+{
+  "name": "bolsa_empleo",
+  "version": "2.0.0",
+  "description": "Proyecto academico, software web para una bolsa de empleo para la universidad de ibague",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinjoan16/BolsaEmpleoUnibague_2.git"
+  },
+  "keywords": [
+    "bolsa",
+    "empleo",
+    "unibague",
+    "software",
+    "project",
+    "proyecto",
+    ":v"
+  ],
+  "author": "Kevin Correa - Daniel Perez - Nicolas Villamil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinjoan16/BolsaEmpleoUnibague_2/issues"
+  },
+  "homepage": "https://github.com/kevinjoan16/BolsaEmpleoUnibague_2#readme"
+}
