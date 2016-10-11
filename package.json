@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/kevinjoan16/BolsaEmpleoUnibague_2/issues"
   },
-  "homepage": "https://github.com/kevinjoan16/BolsaEmpleoUnibague_2#readme"
+  "homepage": "https://github.com/kevinjoan16/BolsaEmpleoUnibague_2#readme",
+  "dependencies": {
+    "hapi": "^15.1.1"
+  }
 }
