@@ -16,6 +16,14 @@ var roleController = {
         }, function(err) {
             callback(err, null);
         });
+    },
+    getById: function(id, callback) {
+        models.Role.findById(id).then(function(res) {
+            callback(null, res);
+        }, function(err) {
+            callback(err, null);
+        });
+
     }
 }
 

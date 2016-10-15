@@ -27,5 +27,19 @@ module.exports = [
                 reply(res);
             });
         }
+    },
+    {
+        method: 'GET',
+        path: '/roles/{id}',
+        handler: function(request, reply) {
+            var id = request.params.id;
+            roleController.getById(id, function(err, res) {
+                if(err){
+                    console.log(err);
+                    reply(err);
+                }else
+                    reply(res);
+            })
+        }
     }
 ]
