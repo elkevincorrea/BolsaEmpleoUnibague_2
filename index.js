@@ -8,29 +8,22 @@ server.connection({
     port: 8000
 });
 
-server.register(require('inert'), (err) => {
-    server.route({
-        method: 'GET',
-        path: '/{param*}',
-        handler: {
-            directory: {
-                path: './public',
-                listing: false
-            }
-        }
+var models = require('./models/');
+
+models.sequelize
+    .authenticate()
+    .then(function() {
+        console.log('Connecion Successful');
+    })
+    .catch(function(err) {
+        console.log('Error creating connection:', err);
     });
 
-    server.route([{
-        method: 'GET',
-        path: '/',
-        handler: function(request, reply) {
-            reply.file('./public/index.html');
-        }
-    }]);
+var routes = require('./routes/index.js');
+
+server.register(require('inert'), (err) => {
+    server.route(routes);
 });
-
-
-
 
 server.start(function(err) {
     if(err){
