@@ -9,6 +9,13 @@ var roleController = {
         }, function(err) {
             callback(err, null);
         });
+    },
+    create: function(role, callback) {
+        models.Role.create(role).then(function(res) {
+            callback(null, res);
+        }, function(err) {
+            callback(err, null);
+        });
     }
 }
 
