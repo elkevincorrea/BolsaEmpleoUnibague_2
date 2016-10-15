@@ -4,7 +4,10 @@
     "password": "bolsaempleo",
     "database": "bolsa_empleo",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "define": {
+      "timestamps": false
+    }
   },
   "test": {
     "username": "root",
