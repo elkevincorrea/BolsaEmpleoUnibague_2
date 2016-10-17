@@ -1,8 +1,9 @@
 'use strict';
 
 var roleRoute = require('./role.js');
+var userRoute = require('./user.js')
 
-var routes = [].concat(roleRoute);
+var routes = [].concat(roleRoute, userRoute);
 
 module.exports = [{
         method: 'GET',
