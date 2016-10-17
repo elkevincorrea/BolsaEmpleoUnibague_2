@@ -11,10 +11,14 @@ var UserController = {
         });
     },
     create: function(user, callback) {
-        models.User.create(user).then(function(res) {
+        models.User.create(user, {
+            include: [models.Role]
+        }).then(function(res) {
             callback(null, res);
         }, function(err) {
             callback(err, null);
         });
     }
 }
+
+module.exports = UserController;
