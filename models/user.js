@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {
     email: {
-      type: DataTypes.STRIN(45),
+      type: DataTypes.STRING(45),
       primaryKey: true,
       allowNull: false
     },
@@ -11,6 +11,8 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
   }, {
+    timestamps: true,
+    underscored: true,
     classMethods: {
       associate: function(models) {
         // associations can be defined here
