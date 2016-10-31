@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       underscored: true,
-      timestamps: false
+      timestamps: false,
       associate: function(models) {
         // associations can be defined here
       }

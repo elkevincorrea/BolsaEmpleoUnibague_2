@@ -4,11 +4,11 @@ module.exports = function(sequelize, DataTypes) {
     firt_name: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
     last_name: {
       type: DataTypes.STRING,
       allowNull: false
-    }
+    },
     phone: DataTypes.INTEGER,
     email: DataTypes.STRING
   }, {
