@@ -14,5 +14,19 @@ module.exports = [
                     reply(res);
             });
         }
+    }, 
+    {
+        method: 'GET',
+        path: '/users',
+        handler: function(request, reply) {
+            userController.getAll(function(err, res) {
+                if(err){
+                    console.log(err);
+                    reply(err);
+                }else{
+                    reply(res);
+                }
+            });
+        }
     }
 ]
