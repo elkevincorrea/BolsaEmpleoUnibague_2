@@ -16,6 +16,14 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        Person.belongsTo(models.Gender, {
+          foreignKey: {
+            field: 'gender_id',
+            allowNull: false
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
+        });
       }
     }
   });
