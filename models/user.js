@@ -10,6 +10,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(32),
       allowNull: false
     },
+    identification: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     timestamps: true,
     underscored: true,
@@ -19,6 +23,15 @@ module.exports = function(sequelize, DataTypes) {
         User.belongsTo(models.Role, {
           foreignKey: {
             field: 'role_id',
+            allowNull: false
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
+        });
+
+        User.belongsTo(models.Identification_Type, {
+          foreignKey: {
+            field: 'identification_type',
             allowNull: false
           },
           onUpdate: 'cascade',
