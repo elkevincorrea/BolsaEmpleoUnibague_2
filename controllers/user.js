@@ -4,7 +4,9 @@ var models = require('../models');
 
 var UserController = {
     getAll: function(callback) {
-        models.User.findAll().then(function(users) {
+        models.User.findAll({
+                include: [models.Role]
+            }).then(function(users) {
             callback(null, users);
         }, function(err) {
             callback(err, null);
