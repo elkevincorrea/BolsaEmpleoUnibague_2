@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     email: DataTypes.STRING
   }, {
     underscored: true,
+    timestamps: true,
     classMethods: {
       associate: function(models) {
         // associations can be defined here
