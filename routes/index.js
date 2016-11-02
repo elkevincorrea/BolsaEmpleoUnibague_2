@@ -1,9 +1,10 @@
 'use strict';
 
 var roleRoute = require('./role.js');
-var userRoute = require('./user.js')
+var userRoute = require('./user.js');
+var graduateRoute = require('./graduate.js');
 
-var routes = [].concat(roleRoute, userRoute);
+var routes = [].concat(roleRoute, userRoute, graduateRoute);
 
 module.exports = [{
         method: 'GET',
