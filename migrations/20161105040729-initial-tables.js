@@ -15,7 +15,7 @@ module.exports = {
           allowNull: false
         }
       }),
-      queryInterface.createTable('Person_Type', {
+      queryInterface.createTable('Person_Types', {
         id: {
           allowNull: false,
           autoIncrement: true,
@@ -46,7 +46,7 @@ module.exports = {
           allowNull: false,
           type: Sequelize.INTEGER,
           references: {
-            model: 'Person_Type',
+            model: 'Person_Types',
             key: 'id'
           }
         },
@@ -100,7 +100,7 @@ module.exports = {
       }),
       queryInterface.createTable('Users', {
         email: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(45),
           allowNull: false,
           primaryKey: true
         },
@@ -119,7 +119,7 @@ module.exports = {
           }
         },
         password: {
-          type: Sequelize.STRING,
+          type: Sequelize.STRING(40),
           allowNull: false
         }
       })
@@ -131,7 +131,7 @@ module.exports = {
       queryInterface.dropTable('Users'),
       queryInterface.dropTable('Companies'),
       queryInterface.dropTable('People'),
-      queryInterface.dropTable('Person_Type'),
+      queryInterface.dropTable('Person_Types'),
       queryInterface.dropTable('Identification_Types')
     ]);
   }
