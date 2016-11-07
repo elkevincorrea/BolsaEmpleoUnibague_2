@@ -1,45 +1,32 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Person = sequelize.define('Person', {
+  var Company = sequelize.define('Company', {
     identification: {
           allowNull: false,
           primaryKey: true,
           type: Sequelize.INTEGER
     },
-    firt_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+    website: DataTypes.STRING,
     phone: DataTypes.INTEGER,
-    email: DataTypes.STRING,
-    gender: {
-      type: Sequelize.STRING(1),
-      allowNull: false
-    }
+    email: DataTypes.STRING
   }, {
     underscored: true,
     timestamps: false,
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        Person.belongsTo(models.Identification_Type, {
+        Company.belongsTo(models.Identification_Type, {
           foreignKey: {
             field: 'id_type_id',
-            allowNull: false
-          }
-        });
-        Person.belongsTo(models.Person_Type, {
-          foreignKey: {
-            field: 'person_type_id',
             allowNull: false
           }
         });
       }
     }
   });
-  return Person;
+  return Company;
 };

@@ -7,35 +7,26 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     password: {
-      type: DataTypes.STRING(32),
-      allowNull: false
-    },
-    identification: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(40),
       allowNull: false
     }
   }, {
     timestamps: true,
-    underscored: true,
+    underscored: false,
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        User.belongsTo(models.Role, {
+        User.belongsTo(models.Person, {
           foreignKey: {
-            field: 'role_id',
-            allowNull: false
-          },
-          onUpdate: 'cascade',
-          onDelete: 'cascade'
+            field: 'person_id',
+            allowNull: true
+          }
         });
-
-        User.belongsTo(models.Identification_Type, {
+        User.belongsTo(models.Company, {
           foreignKey: {
-            field: 'identification_type',
-            allowNull: false
-          },
-          onUpdate: 'cascade',
-          onDelete: 'cascade'
+            field: 'company_id',
+            allowNull: true
+          }
         });
       }
     }
