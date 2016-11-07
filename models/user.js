@@ -20,13 +20,15 @@ module.exports = function(sequelize, DataTypes) {
           foreignKey: {
             field: 'person_id',
             allowNull: true
-          }
+          },
+          onUpdate: 'cascade'
         });
         User.belongsTo(models.Company, {
           foreignKey: {
             field: 'company_id',
             allowNull: true
-          }
+          },
+          onUpdate: 'cascade'
         });
       }
     }

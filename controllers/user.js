@@ -5,7 +5,7 @@ var models = require('../models');
 var UserController = {
     getAll: function(callback) {
         models.User.findAll({
-                include: [models.Role]
+                include: [models.Person, models.Company]
             }).then(function(users) {
             callback(null, users);
         }, function(err) {
@@ -14,7 +14,7 @@ var UserController = {
     },
     create: function(user, callback) {
         models.User.create(user, {
-            include: [models.Role]
+            include: [models.Person, models.Company]
         }).then(function(res) {
             callback(null, res);
         }, function(err) {

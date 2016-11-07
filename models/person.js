@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     identification: {
           allowNull: false,
           primaryKey: true,
-          type: Sequelize.INTEGER
+          type: DataTypes.INTEGER
     },
     firt_name: {
       type: DataTypes.STRING,
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
     phone: DataTypes.INTEGER,
     email: DataTypes.STRING,
     gender: {
-      type: Sequelize.STRING(1),
+      type: DataTypes.STRING(1),
       allowNull: false
     }
   }, {
