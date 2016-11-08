@@ -119,7 +119,7 @@ module.exports = {
           }
         },
         password: {
-          type: Sequelize.STRING(40),
+          type: Sequelize.STRING,
           allowNull: false
         }
       })
