@@ -8,39 +8,6 @@ server.connection({
     port: 8000
 });
 
-
-/**
-  * Start test crypting password
-  **/
-console.log('Testing crypting password');
-const passwordCrypt = require('./util/password-crypt.js');
-
-var passText = 'asfasdf';
-var hashRes = null;
-
-passwordCrypt.cryptPassword(passText, function(err, hash) {
-    if(err){
-        console.log('Error crypting: ', err);
-    }else{
-        console.log('Line25. password crypted= ', hash);
-        hashRes = hash;
-    }
-});
-setTimeout(function() {
-    console.log('Line30. password crypted= ', hashRes);
-    passwordCrypt.comparePassword(passText, hashRes, function(err, res) {
-        if(err){
-            console.log('Error comparePassword: ', err);
-        }else{
-            console.log('Compare= ', res);
-        }
-    });
-}, 2000);
-
-//finish test
-
-
-
 var models = require('./models/');
 
 models.sequelize
