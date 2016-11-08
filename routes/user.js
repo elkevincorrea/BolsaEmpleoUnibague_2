@@ -3,7 +3,7 @@ var userController = require('../controllers/user.js');
 module.exports = [
     {
         method: 'POST',
-        path: '/users',
+        path: '/bolsa-empleo/users',
         handler: function(request, reply) {
             var user = request.payload;
             userController.create(user, function(err, res) {
@@ -17,7 +17,7 @@ module.exports = [
     }, 
     {
         method: 'GET',
-        path: '/users',
+        path: '/bolsa-empleo/users',
         handler: function(request, reply) {
             userController.getAll(function(err, res) {
                 if(err){
