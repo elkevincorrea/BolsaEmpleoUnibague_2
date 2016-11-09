@@ -52,6 +52,18 @@ var UserController = {
                 }
             })
         });
+    },
+    getUserByEmail: function(email, callback) {
+        models.User.findOne({
+            where: {
+                email: email
+            },
+            include: [models.Company]
+        }).then(function(resUser){
+            callback(null, resUser);
+        }).then(function(err){
+            callback(err, null);
+        });
     }
 }
 
