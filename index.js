@@ -1,6 +1,7 @@
 'use strict';
 
 const Hapi = require('hapi');
+const config = require('./config/config.json');
 
 const server = new Hapi.Server();
 server.connection({
@@ -21,7 +22,24 @@ models.sequelize
 
 var routes = require('./routes/index.js');
 
-server.register(require('inert'), (err) => {
+var validateAuth = function(decoded, request, callback) {
+    var UserController = require('./controllers/user.js');
+    UserController.getUserByEmail(decoded.email, function(err, res) {
+        if(err){
+            return callback(null, false);
+        }else{
+            return callback(null, true);
+        }
+    })
+}
+
+server.register([require('inert'), require('hapi-auth-jwt2')], (err) => {
+    server.auth.strategy('jwt', 'jwt', {
+        key: config.secretkey,
+        validateFunc: validateAuth,
+        verifyOptions: { algorithms: ['HS256'] }
+    });
+    server.auth.default('jwt');
     server.route(routes);
 });
 
