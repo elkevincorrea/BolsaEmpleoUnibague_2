@@ -1,4 +1,5 @@
 var userController = require('../controllers/user.js');
+const Token = require('../util/token.js');
 
 module.exports = [
     {
@@ -18,6 +19,9 @@ module.exports = [
     {
         method: 'GET',
         path: '/bolsa-empleo/users',
+        config: {
+            auth: 'jwt'
+        },
         handler: function(request, reply) {
             userController.getAll(function(err, res) {
                 if(err){
@@ -32,6 +36,9 @@ module.exports = [
     {
         method: 'POST',
         path: '/bolsa-empleo/auth/users/company',
+        config: {
+            auth: false
+        },
         handler: function(request, reply) {
             var user = request.payload;
             userController.getCompanyById(user, function(err, res) {
@@ -39,7 +46,19 @@ module.exports = [
                     console.log('POST /bolsa-empleo/users/company err:\n' + err);
                     reply(err);
                 }else{
-                    reply(res);
+                    if(res){
+                        var token = Token.createToken({
+                            email: res.email,
+                            Company: {
+                                identification: res.Company.identification,
+                                name: res.Company.name
+                            }
+                        });
+                        reply(token);
+                    }else{
+                        reply(res);
+                    }
+                    
                 }
             })
         }
