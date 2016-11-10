@@ -9,6 +9,9 @@ var routes = [].concat(userRoute, idTypeRoute, personTypeRoute);
 module.exports = [{
         method: 'GET',
         path: '/',
+        config: {
+            auth: false
+        },
         handler: function(req, reply) {
             reply.file('./public/index.html');
         }
@@ -16,6 +19,9 @@ module.exports = [{
     {
         method: 'GET',
         path: '/{param*}',
+        config: {
+            auth: false
+        },
         handler: {
             directory: {
                 path: './public',
