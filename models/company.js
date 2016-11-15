@@ -25,6 +25,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
           }
         });
+        Company.belongsToMany(models.Person, {as: 'Contacts', through: models.Company_Contacts});
       }
     }
   });
