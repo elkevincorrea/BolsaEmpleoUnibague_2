@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.TEXT
       }
     }).then(function() {
-      return queryInterface.createTable('Languagues', {
+      return queryInterface.createTable('Languages', {
         id: {
           allowNull: false,
           autoIncrement: true,
@@ -148,13 +148,6 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.dropTable('users');
-    */
     return queryInterface.dropTable('Vacancies').then(function(){
       return queryInterface.dropTable('Professional_Profiles').then(function() {
         return queryInterface.dropTable('Degrees').then(function() {
