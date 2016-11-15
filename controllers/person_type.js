@@ -17,13 +17,35 @@ var PersonTypeController = {
             callback(err, null);
         });;
     },
-    create: function(id_type, callback) {
-        models.Person_Type.create(id_type).then(function(res) {
+    create: function(person_type, callback) {
+        models.Person_Type.create(person_type).then(function(res) {
             callback(null, res);
         }, function(err) {
             callback(err, null);
         });
     },
+    update: function(person_type, callback) {
+        models.Person_Type.update(person_type, {
+            where: {
+                id: person_type.id
+            }
+        }).then(function(updateRecords) {
+            callback(null, updateRecords);
+        }).catch(function(err){
+            callback(err, null);
+        });
+    },
+    delete: function(person_type_id, callback) {
+        models.Person_Type.destroy({
+            where: {
+                id: person_type_id
+            }
+        }).then(function(deletedRecords) {
+            callback(null, deletedRecords);
+        }).catch(function(err) {
+            callback(err, null);
+        });
+    }
 }
 
 module.exports = PersonTypeController
