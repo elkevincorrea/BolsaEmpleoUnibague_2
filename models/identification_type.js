@@ -6,9 +6,9 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
+    underscored: true,
+    timestamps: false,
     classMethods: {
-      underscored: true,
-      timestamps: false,
       associate: function(models) {
         // associations can be defined here
       }
