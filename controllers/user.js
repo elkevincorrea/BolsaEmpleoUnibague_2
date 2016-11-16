@@ -58,7 +58,7 @@ var UserController = {
             where: {
                 email: email
             },
-            include: [models.Company]
+            include: [models.Company, models.Person]
         }).then(function(resUser){
             callback(null, resUser);
         }).then(function(err){
