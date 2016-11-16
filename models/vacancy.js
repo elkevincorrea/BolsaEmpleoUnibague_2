@@ -30,6 +30,11 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
           }
         });
+        Vacancy.belongsTo(models.Professional_Profile, {
+          foreignKey: {
+            field: 'professional_profile_id',
+          }
+        });
       }
     }
   });
