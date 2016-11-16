@@ -18,7 +18,6 @@ module.exports = function(sequelize, DataTypes) {
     timestamps: false,
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
         Company.belongsTo(models.Identification_Type, {
           foreignKey: {
             field: 'id_type_id',
@@ -26,6 +25,9 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
         Company.belongsToMany(models.Person, {as: 'Contacts', through: models.Company_Contacts});
+        Company.hasMany(models.Vacancy, {
+          foreignKey: 'vacancy_id'
+        });
       }
     }
   });
