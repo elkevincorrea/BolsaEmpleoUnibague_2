@@ -2,9 +2,9 @@
 module.exports = function(sequelize, DataTypes) {
   var Person = sequelize.define('Person', {
     identification: {
-          allowNull: false,
-          primaryKey: true,
-          type: DataTypes.INTEGER
+      allowNull: false,
+      primaryKey: true,
+      type: DataTypes.INTEGER
     },
     firt_name: {
       type: DataTypes.STRING,
@@ -37,6 +37,14 @@ module.exports = function(sequelize, DataTypes) {
             field: 'person_type_id',
             allowNull: false
           }
+        });
+        Person.belongsTo(models.Professional_Profile, {
+          foreignKey: {
+            field: 'professional_profile_id',
+            allowNull: false
+          },
+          onUpdate: 'cascade',
+          onDelete: 'cascade'
         });
       }
     }
