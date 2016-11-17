@@ -24,9 +24,13 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
           }
         });
-        Company.belongsToMany(models.Person, {as: 'Contacts', through: models.Company_Contacts});
+        Company.belongsToMany(models.Person, {
+          as: 'Contacts', 
+          through: models.Company_Contacts,
+          foreignKey: 'company_id'
+        });
         Company.hasMany(models.Vacancy, {
-          foreignKey: 'vacancy_id'
+          foreignKey: 'id'
         });
       }
     }
