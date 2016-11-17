@@ -24,6 +24,18 @@ var CompanyController = {
             callback(err, null);
         });
     },
+    getVacancies: function(id, callback) {
+        models.Company.findOne({
+            where: {
+                identification: id
+            },
+            include: [models.Vacancy]
+        }).then(function(res) {
+            callback(null, res.Vacancies);
+        }).catch(function(err) {
+            callback(err, null);
+        });
+    },
     create: function(company, callback) {
         models.Company.create(company).then(function(res) {
             callback(null, res);
