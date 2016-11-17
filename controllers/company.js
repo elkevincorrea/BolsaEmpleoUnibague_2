@@ -5,7 +5,7 @@ var models = require('../models');
 var CompanyController = {
     getAll: function(callback) {
         models.Company.findAll({
-            include: [models.Identification_Type, models.Person, models.Vacancy]
+            include: [models.Identification_Type, models.Vacancy]
         }).then(function(res) {
             callback(null, res);
         }).catch(function(err) {
@@ -17,7 +17,7 @@ var CompanyController = {
             where: {
                 identification: id
             },
-            include: [models.Identification_Type, models.Person, models.Vacancy]
+            include: [models.Identification_Type, models.Vacancy]
         }).then(function(res) {
             callback(null, res);
         }).catch(function(err) {
