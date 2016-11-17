@@ -46,6 +46,10 @@ module.exports = function(sequelize, DataTypes) {
           onUpdate: 'cascade',
           onDelete: 'cascade'
         });
+        Person.belongsToMany(models.Company, {
+          through: models.Company_Contacts,
+          foreignKey: 'person_id'
+        });
       }
     }
   });
