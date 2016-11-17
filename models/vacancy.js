@@ -34,6 +34,10 @@ module.exports = function(sequelize, DataTypes) {
             field: 'professional_profile_id',
           }
         });
+        Vacancy.belongsToMany(models.Person, {
+          through: models.Postulation,
+          foreignKey: 'vacancy_id'
+        });
       }
     }
   });

@@ -50,6 +50,10 @@ module.exports = function(sequelize, DataTypes) {
           through: models.Company_Contacts,
           foreignKey: 'person_id'
         });
+        Person.belongsToMany(models.Vacancy, {
+          through: models.Postulation,
+          foreignKey: 'person_id'
+        });
       }
     }
   });
