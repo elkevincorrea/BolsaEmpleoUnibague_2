@@ -26,8 +26,7 @@ module.exports = function(sequelize, DataTypes) {
         });
         Vacancy.belongsTo(models.Job,{
           foreignKey: {
-            field: 'job_id',
-            allowNull: false
+            field: 'job_id'
           }
         });
         Vacancy.belongsTo(models.Professional_Profile, {
