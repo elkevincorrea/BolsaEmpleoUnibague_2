@@ -30,7 +30,9 @@ var VacancyController = {
     },
     //TODO: GetByDegree (s)
     create: function(vacancy, callback) {
-        models.Vacancy.create(vacancy).then(function(res) {
+        models.Vacancy.create(vacancy, {
+            include: [models.Job, models.Professional_Profile]
+        }).then(function(res) {
             callback(null, res);
         }).catch(function(err) {
             callback(err, null);
