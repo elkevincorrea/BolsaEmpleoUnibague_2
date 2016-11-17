@@ -61,7 +61,7 @@ var UserController = {
             include: [models.Company, models.Person]
         }).then(function(resUser){
             callback(null, resUser);
-        }).then(function(err){
+        }).catch(function(err){
             callback(err, null);
         });
     }
