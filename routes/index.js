@@ -3,8 +3,9 @@
 var idTypeRoute = require('./identification_type.js');
 var personTypeRoute = require('./person_type.js');
 var userRoute = require('./user.js');
+var companyRoute = require('./company.js');
 
-var routes = [].concat(userRoute, idTypeRoute, personTypeRoute);
+var routes = [].concat(userRoute, idTypeRoute, personTypeRoute, companyRoute);
 
 module.exports = [{
         method: 'GET',
