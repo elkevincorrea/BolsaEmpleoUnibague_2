@@ -34,9 +34,12 @@ module.exports = [
     },
     {
         method: 'GET',
-        path: '/bolsa-empleo/companies/{id}/vacancies',
+        path: '/bolsa-empleo/companies/vacancies',
         handler: function(request, reply){
-            var company_id = request.params.id;
+            if(!request.auth.credentials.Company || !request.auth.credentials.Company.identification){
+                return reply({status: 401, message:'Unathorized'});
+            }
+            var company_id = request.auth.credentials.Company.identification;
             CompanyController.getVacancies(company_id, function(err, res) {
                 if(err){
                     console.log(err);
