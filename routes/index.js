@@ -31,4 +31,34 @@ module.exports = [{
                 listing: false
             }
         }
+    },
+    {
+        method: 'GET',
+        path: '/admin',
+        config:{
+            auth: false
+        },
+        handler: function(request, reply) {
+            reply.file('./public/admin-panel.html');
+        }
+    },
+    {
+        method: 'GET',
+        path: '/empresa',
+        config:{
+            auth: false
+        },
+        handler: function(request, reply) {
+            reply.file('./public/empresa-panel.html');
+        }
+    },
+    {
+        method: 'GET',
+        path: '/graduado',
+        config:{
+            auth: false
+        },
+        handler: function(request, reply) {
+            reply.file('./public/graduado-panel.html');
+        }
     }].concat(routes);
