@@ -12,7 +12,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     website: DataTypes.STRING,
     phone: DataTypes.INTEGER,
-    email: DataTypes.STRING
+    email: DataTypes.STRING,
+    confirmed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+      allowNull: false
+    }
   }, {
     underscored: true,
     timestamps: false,
