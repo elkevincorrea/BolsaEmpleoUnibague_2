@@ -9,7 +9,7 @@ var GraduateController = {
             where: {
                 person_type_id: graduate_type
             },
-            include: [models.Identification_Type, models.Person, models.Professional_Profile]
+            include: [models.Identification_Type, models.Person_Type, models.Professional_Profile]
         }).then(function(res) {
             callback(null, res);
         }).catch(function(err) {
@@ -30,7 +30,9 @@ var GraduateController = {
     },
     create: function(graduate, callback) {
         graduate.person_type_id = graduate_type;
-        models.Person.create(graduate).then(function(res) {
+        models.Person.create(graduate, {
+            include: [models.Professional_Profile]
+        }).then(function(res) {
             callback(null, res);
         }).catch(function(err) {
             callback(err, null);
