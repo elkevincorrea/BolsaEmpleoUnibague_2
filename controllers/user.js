@@ -53,6 +53,29 @@ var UserController = {
             })
         });
     },
+    getGraduateById: function(params) {
+        models.User.findOne({
+            where: {
+                person_identification: user.identification
+            },
+            include: [models.Person]
+        }).then(function(resUser) {
+            passwordCrypt.comparePassword(user.password, resUser.password, function(err, res) {
+                if(err){
+                    //Contraseña Incorrecta
+                    callback(err, null);
+                }else{
+                    if(res == true){
+                        callback(null, resUser);
+                    }else{
+                        callback({
+                            message: 'Contraseña incorrecta'
+                        }, null);
+                    }
+                }
+            })
+        });
+    },
     getUserByEmail: function(email, callback) {
         models.User.findOne({
             where: {
