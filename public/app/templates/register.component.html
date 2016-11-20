@@ -1,13 +1,89 @@
-<div class="panel">
-  <h2> Registrate como:</h2> 
+
+<div class="panel"> 
+  <h2> Registrate como:</h2>
+  <br>
+  <div class="row">
+     <div class="col-xs-10 col-xs-offset-1">
+          <div role="tabpanel">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active nav-full"><a href="#sectiongraduado" aria-controls="#sectiongraduado" data-toggle="tab" role="tab">Graduado</a> </li>
+                    <li role="presentation" class="nav-full"><a href="#sectionempresa" aria-controls="#sectionempresa" data-toggle="tab" role="tab">Empresa</a> </li>       
+                </ul>
+            
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="sectiongraduado">
+                    <br>
+                     <div class="form-group">
+                        <input type="text" name="id" class="form-control" placeholder="Identificacion">
+                     </div>
+                     <div class="form-group">
+                        <input type="email" class="form-control" name="correo"  placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="pass" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <input type="submit" class="btn btn-md btn-bolsa-empleo btn-block" name="crear" value="Registrarse">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Form para Empresa -->
+                <div role="tabpanel" class="tab-pane" id="sectionempresa">
+                    <br>    
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option value="">Seleccione un tipo de documento</option>
+                            <option value="1">Cedula</option>
+                            <option value="2">NIT</option>
+                        </select>
+                        
+
+                    </div>
+                     <div class="form-group">
+                        <input type="text" name="id" class="form-control" placeholder="Identificacion">
+                     </div>
+                     <div class="form-group">
+                        <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                     </div>
+                      <div class="form-group">
+                        <input type="text" name="website" class="form-control" placeholder="Pagina web">
+                     </div>
+                      <div class="form-group">
+                        <input type="number" name="telefono" class="form-control" placeholder="Telefono">
+                     </div>
+
+                     <div class="form-group">
+                        <input type="email" class="form-control" name="correo"  placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="pass" placeholder="Contraseña">
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <input type="submit" class="btn btn-md btn-bolsa-empleo btn-block" name="crear" value="Registrarse">
+                            </div>
+                        </div>
+                    </div>
+               </div>
+                <!--fin form para Empresa -->
+            </div>
+        </div>   
+    </div>
+</div>
+</div>
+<!--<br>
    <form>
         <div class="form-group">
             <div class="row ">
                 <div class="col-xs-6">
-                    <a type="button" class="btn btn-block btn-lg btn-bolsa-empleo"><i class="fa fa-graduation-cap"> Graduado</i></a>
+                    <a type="button" class="btn btn-block btn-md btn-bolsa-empleo"><i class="fa fa-graduation-cap"> Graduado</i></a>
                 </div>
                 <div class="col-xs-6">
-                    <a type="button" class="btn btn-block btn-lg btn-bolsa-empleo"><i class="fa fa-briefcase"> Empresa</i></a>
+                    <a type="button" class="btn btn-block btn-md btn-bolsa-empleo"><i class="fa fa-briefcase"> Empresa</i></a>
 
                 </div>
             </div>
@@ -22,7 +98,11 @@
             <input type="password" class="form-control" name="pass" placeholder="Contraseña">
         </div>
         <div class="form-group">
-                <input type="submit" class="btn btn-lg btn-create " name="crear" value="Crear">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <input type="submit" class="btn btn-md btn-bolsa-empleo btn-block" name="crear" value="Crear">
+                </div>
+            </div>
+                
         </div>
-   </form>   
-</div>
+   </form> -->
