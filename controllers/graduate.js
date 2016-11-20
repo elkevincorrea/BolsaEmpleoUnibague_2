@@ -59,6 +59,18 @@ var GraduateController = {
         }).catch(function(err) {
             callback(err, null);
         });
+    },
+    getPostulations: function(graduate_id, callback) {
+        models.Person.findOne({
+            where: {
+                identification: graduate_id
+            }
+        }).then(function(graduate) {
+            var res = graduate.getVacancies();
+            callback(null, res);
+        }).catch(function(err) {
+            callback(err, null);
+        });
     }
 }
 
