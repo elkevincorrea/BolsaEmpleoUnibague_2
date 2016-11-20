@@ -51,9 +51,11 @@ var UserController = {
                     }
                 }
             })
+        }).catch(function(err) {
+            callback(err, null);
         });
     },
-    getGraduateById: function(params) {
+    getGraduateById: function(user, callback) {
         models.User.findOne({
             where: {
                 person_identification: user.identification

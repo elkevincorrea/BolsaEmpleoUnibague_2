@@ -47,7 +47,7 @@ module.exports = [
             var user = request.payload;
             userController.getCompanyById(user, function(err, res) {
                 if(err){
-                    console.log('POST /bolsa-empleo/users/company err:\n' + err);
+                    console.log('POST /bolsa-empleo/auth/users/company err:\n' + err);
                     reply(err);
                 }else{
                     if(res){
@@ -84,8 +84,9 @@ module.exports = [
                         var token = Token.createToken({
                             email: res.email,
                             Graduate: {
-                                identification: res.Graduate.identification,
-                                //TODO: Nombre completo
+                                identification: res.Person.identification,
+                                first_name: res.Person.first_name,
+                                last_name: res.Person.last_name
                             }
                         });
                         reply(token);
