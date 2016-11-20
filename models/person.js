@@ -41,7 +41,6 @@ module.exports = function(sequelize, DataTypes) {
         Person.belongsTo(models.Professional_Profile, {
           foreignKey: {
             field: 'professional_profile_id',
-            allowNull: false
           },
           onUpdate: 'cascade',
           onDelete: 'cascade'
