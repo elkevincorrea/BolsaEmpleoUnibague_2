@@ -1,10 +1,11 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 navbar-landing-page .navbar .navbar-header .navbar-brand{
     padding: 0;
     border-radius: 0px;
     margin-bottom: 0px;
-    margin-left: 50px;      
+        
 }
 
 navbar-landing-page .navbar .navbar-default{
@@ -15,13 +16,16 @@ navbar-landing-page #navbarBolsa{
     border-radius: 0px;         
     background-color: white;
     margin-top: 0px;
-    height: 60px;
-    border-left: 3px;
+    margin-bottom: 0px;
+    /*height: 60px;*/
+   
     border-color: #01579b;
     border-top: none;
+    border-left: none;
+    border-right: none;
 }
 
-navbar-landing-page ul button{
+/*navbar-landing-page ul button{
     color: white; 
     padding-top: 5px;
     margin-right: 40px;
@@ -30,14 +34,30 @@ navbar-landing-page ul button{
     text-align: center;
     border-radius: 10px;
     text-decoration: none;
- }  
+ }*/  
 
+.navbar .container{
+  box-shadow: none;
+}
+
+
+.a-bolsa-empleo{
+  color: #01579b;
+  
+}
+
+.container{
+  margin-top: 0;
+ -webkit-box-shadow: 2px -5px 24px -3px rgba(128,143,135,0.48);
+-moz-box-shadow: 2px -5px 24px -3px rgba(128,143,135,0.48);
+box-shadow: 2px -5px 24px -3px rgba(128,143,135,0.48);
+
+}
 
  .panel{
-   
-   
-    border-radius: 0;
-    padding: 10px 10px;
+  border: 0;
+  box-shadow: none;
+  padding: 10px 10px;
  }
 
  /****** LOGIN MODAL ******/
@@ -159,7 +179,7 @@ navbar-landing-page ul button{
 body {
 /*width: 100%;*/
 /*height:auto;*/
-background-color:#fffffa;
+background-color: #ffffff;
 /*background-image: url('/assets/resources/desk.jpg');*/
 background-position: center;
 background-size: cover;
@@ -173,14 +193,18 @@ body *{
 
 description h1{
 font-size: 30px;
-font-family: roboto;
+ font-family: 'Roboto';
 position: relative;
 color:  #01579b;
 padding-top: 100px;
 }
+
+description .lead{
+  font-size: 18px;
+}
 description p{
 font-size: 25px;
-font-family: roboto;
+ font-family: 'Roboto';
 
 }
 description hr.style1{
@@ -193,8 +217,8 @@ background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
 }
 
 register-landing h2{
-font-size: 35px;
-font-family: roboto;
+/*font-size: 35px;*/
+font-family: 'Roboto', sans-serif;
 text-align: left;
 color:  #01579b;
 padding-top: 50px;
@@ -206,23 +230,20 @@ padding-top: 50px;
 .btn-bolsa-empleo{
   color: white;
   background-color:#01579b;
-  margin-top: 20px;
-  border-radius: 6px;
-  font-family: roboto;
+  /*margin-top: 10px;*/
+  border-radius: 5px;
+  font-family: 'Roboto';
 }
 
 .btn-bolsa-empleo:hover{
   color: white;
   background-color: #357ae8;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
-.btn-create{
-
-  color: white;
-  background-color: #01579b;
-  font-family: roboto;
-
+.nav-full{
+  width: 50%;
+  text-align: center;
 }
 
 
