@@ -4,6 +4,8 @@ const passwordCrypt = require('../util/password-crypt.js');
 
 var models = require('../models');
 
+const graduate_type = 1; // TODO
+
 var UserController = {
     getAll: function(callback) {
         models.User.findAll({
@@ -14,14 +16,14 @@ var UserController = {
             callback(err, null);
         });
     },
-    create: function(user, callback) {
+    createCompany: function(user, callback) {
         passwordCrypt.cryptPassword(user.password, function(err, hash) {
             if(err){
                 callback(err, null);
             }else{
                 user.password = hash;
                 models.User.create(user, {
-                    include: [models.Person, models.Company]
+                    include: [models.Company]
                 }).then(function(res) {
                     callback(null, res);
                 }, function(err) {
@@ -29,6 +31,38 @@ var UserController = {
                 });
             }
         });
+    },
+    createGraduate: function(user, callback) {
+        models.Person.findOne({
+            where: {
+                identification: user.identification,
+                person__type_id: graduate_type
+            }
+        }).then(function(graduate) {
+            if(graduate){
+                passwordCrypt.cryptPassword(user.password, function(err, hash) {
+                    if(err){
+                        callback(err, null);
+                    }else{
+                        user.password = hash;
+                        user.person_identification = graduate.identification;
+                        models.User.create(user, {
+                            include: [models.Person]
+                        }).then(function(res) {
+                            callback(null, res);
+                        }, function(err) {
+                            callback(err, null);
+                        });
+                    }
+                });
+            }else{
+                callback({message: 'Person not found'}, null);
+            }
+        }).catch(function(err) {
+            callback(err, null);
+        });
+
+        
     },
     getCompanyById: function(user, callback) {
         models.User.findOne({
