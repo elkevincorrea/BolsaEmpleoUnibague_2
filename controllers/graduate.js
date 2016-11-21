@@ -71,6 +71,26 @@ var GraduateController = {
         }).catch(function(err) {
             callback(err, null);
         });
+    },
+    postulateToVacancy: function(graduate_id, vacancy_id, callback) {
+        models.Person.findOne({
+            where: {
+                identification: graduate_id
+            }
+        }).then(function(graduate) {
+            models.Vacancy.findOne({where:{id: vacancy_id}}).then(function(vacancy) {
+                graduate.addVacancy(vacancy).then(function(res) {
+                    callback(null, res);
+                })
+                .catch(function(err) {
+                    callback(err, null);
+                });
+            }).catch(function(err){
+                callback(err, null);
+            });
+        }).catch(function(err) {
+            callback(err, null);
+        });
     }
 }
 
