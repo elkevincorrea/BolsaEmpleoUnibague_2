@@ -90,10 +90,10 @@ var CompanyController = {
             callback(err, null);
         });
     },
-    update: function(company, callback) {
+    update: function(company_id, company, callback) {
         models.Company.update(company, {
             where: {
-                identification: company.identification
+                identification: company_id
             }
         }).then(function(updateRecords) {
             callback(null, updateRecords);
