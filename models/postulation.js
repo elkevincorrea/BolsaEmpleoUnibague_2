@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
         Postulation.belongsTo(models.Postulation_Status, {
           foreignKey: {
             field: 'status',
-            allowNull: false
+            defaultValue: 1
           }
         });
       }
