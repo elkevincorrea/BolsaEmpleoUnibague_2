@@ -2,6 +2,7 @@
 
 var models = require('../models');
 const graduate_type = 1; //TODO
+const graduate_id_type = 2; //TODO
 
 var GraduateController = {
     getAll: function(callback) {
@@ -29,7 +30,8 @@ var GraduateController = {
         });
     },
     create: function(graduate, callback) {
-        graduate.person_type_id = graduate_type;
+        graduate.identification__type_id = graduate_id_type;
+        graduate.person__type_id = graduate_type;
         models.Person.create(graduate, {
             include: [models.Professional_Profile]
         }).then(function(res) {
