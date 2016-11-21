@@ -5,13 +5,30 @@ const Token = require('../util/token.js');
 module.exports = [
     {
         method: 'POST',
-        path: '/bolsa-empleo/users',
+        path: '/bolsa-empleo/users/graduates',
         config: {
             auth: false
         },
         handler: function(request, reply) {
             var user = request.payload;
-            userController.create(user, function(err, res) {
+            userController.createGraduate(user, function(err, res) {
+                if(err){
+                    console.log(err);
+                    reply(err);
+                }else
+                    reply(res);
+            });
+        }
+    },
+    {
+        method: 'POST',
+        path: '/bolsa-empleo/users/companies',
+        config: {
+            auth: false
+        },
+        handler: function(request, reply) {
+            var user = request.payload;
+            userController.createCompany(user, function(err, res) {
                 if(err){
                     console.log(err);
                     reply(err);
