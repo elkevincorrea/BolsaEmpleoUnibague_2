@@ -36,6 +36,53 @@ var CompanyController = {
             callback(err, null);
         });
     },
+    getPostulatesVacancy: function(company_id, vacancy_id, callback) {
+        models.Vacancy.findOne({
+            where: {
+                company_identification: company_id,
+                id: vacancy_id
+            }
+        }).then(function(res) {
+            if(res){
+                callback(null, res.getPeople());
+            }else{
+                callback({message: 'No encontrada'}, null);
+            }
+        }).catch(function(err) {
+            callback(err, null);
+        });
+    },
+    updatePostulation: function(company_id, vacancy_id, person_id, status, callback) {
+        models.Vacancy.findOne({
+            where: {
+                company_identification: company_id,
+                id: vacancy_id
+            }
+        }).then(function(res) {
+            if(res){
+                models.Postulation.findOne({
+                    where: {
+                        vacancy_id: vacancy_id,
+                        person_id: person_id
+                    }
+                }).then(function(postulation) {
+                    postulation.update({
+                        postulation__status_id: status
+                    }).then(function(updateRecords) {
+                        callback(null, updateRecords);
+                    }).catch(function(err) {
+                        callback(err, null);
+                    });
+                }).catch(function(err) {
+                    callback(err, null);
+                });
+            }else{
+                callback({message: 'No encontrada'}, null);
+            }
+        }).catch(function(err) {
+            callback(err, null);
+        });
+    },
     create: function(company, callback) {
         models.Company.create(company).then(function(res) {
             callback(null, res);
