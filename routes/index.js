@@ -44,6 +44,36 @@ module.exports = [{
     },
     {
         method: 'GET',
+        path: '/admin/',
+        config:{
+            auth: false
+        },
+        handler: function(request, reply) {
+            reply.file('./public/admin-panel.html');
+        }
+    },
+    {
+        method: 'GET',
+        path: '/admin/tabla-graduados',
+        config:{
+            auth: false
+        },
+        handler: function(request, reply) {
+            reply.file('./public/admin-panel.html');
+        }
+    },
+    {
+        method: 'GET',
+        path: '/admin/tabla-empresas',
+        config:{
+            auth: false
+        },
+        handler: function(request, reply) {
+            reply.file('./public/admin-panel.html');
+        }
+    },
+    {
+        method: 'GET',
         path: '/empresa',
         config:{
             auth: false
@@ -54,7 +84,27 @@ module.exports = [{
     },
     {
         method: 'GET',
+        path: '/empresa/',
+        config:{
+            auth: false
+        },
+        handler: function(request, reply) {
+            reply.file('./public/empresa-panel.html');
+        }
+    },
+    {
+        method: 'GET',
         path: '/graduado',
+        config:{
+            auth: false
+        },
+        handler: function(request, reply) {
+            reply.file('./public/graduado-panel.html');
+        }
+    },
+    {
+        method: 'GET',
+        path: '/graduado/',
         config:{
             auth: false
         },
