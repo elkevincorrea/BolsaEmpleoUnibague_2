@@ -4,12 +4,11 @@ import { AppComponent }   from './app.component';
 import { DescriptionComponent} from './description.component';
 import { NavbarLandingPageComponent} from './navbar-landing-page.component';
 import{RegisterLandingComponent} from './register.component';
-import{AdminComponent} from './panel-admin';
 
 @NgModule({
   imports:      [ BrowserModule ],
   declarations: [ 
-    AppComponent,AdminComponent, DescriptionComponent , NavbarLandingPageComponent, RegisterLandingComponent
+    AppComponent, DescriptionComponent , NavbarLandingPageComponent, RegisterLandingComponent
   ],
   bootstrap:    [ AppComponent ]
 })

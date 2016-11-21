@@ -247,6 +247,20 @@ padding-top: 50px;
 }
 
 
+navbar-default + .container{
+ margin-top: 100px;
+ 
+ box-shadow: none;
+}
+@media(min-width:768px){
+navbar-default + .container{
+  margin: 0 25px;
+ margin-top: 60px;
+ padding-left: 215px;
+}
+}
+
+
 /*
 register-landing button{
 color: white; 
