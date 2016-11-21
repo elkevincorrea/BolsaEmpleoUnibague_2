@@ -1,0 +1,24 @@
+<div class="table-responsive">
+  <table class="table">
+      <thead>
+          <tr>
+              <th>Identificacion</th>
+              <th>Primer nombre</th>
+              <th>Segundo nombre</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let graduado of graduados">
+              <th>
+                  {{graduado.identification}}
+              </th>
+              <th>
+                  {{graduado.first_name}}
+              </th>
+              <th>
+                  {{graduado.last_name}}
+              </th>
+          </tr>
+      </tbody>
+  </table>
+</div>
