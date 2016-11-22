@@ -19,17 +19,17 @@
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">  <div class="modal-dialog">
             <div class="loginmodal-container">
                 <h1>Iniciar sesion como:</h1><br>
-                <form>
+                <form (ngSubmit)="login()">
                     <div class="btn-container">
-                    <input type="radio" name="tipo-usuario" id="graduado" checked hidden/>
+                    <input type="radio" [(ngModel)]="user.type" value="graduate" name="tipo-usuario" id="graduado" checked hidden/>
                     <label for="graduado">Graduado</label>  
-                    <input type="radio" name="tipo-usuario" id="empresa" hidden/>
+                    <input type="radio" [(ngModel)]="user.type" value="company" name="tipo-usuario" id="empresa" hidden/>
                     <label for="empresa">Empresa</label> 
                     </div>
                <!--<button type="button" class="btn btn-navbar"><i class="fa fa-graduation-cap"> Graduado</i></button>
                     <button type="button" class="btn btn-navbar"><i class="fa fa-briefcase"> Empresa</i></button> <br>-->
-                    <input type="text" name="user" placeholder="Identificacion">
-                    <input type="password" name="pass" placeholder="Contraseña">
+                    <input type="text" [(ngModel)]="user.identification" required name="user" placeholder="Identificacion">
+                    <input type="password" [(ngModel)]="user.password" required name="pass" placeholder="Contraseña">
                     <input type="submit" name="login" class="login loginmodal-submit" value="Ingresar">
                 </form>
                                 
