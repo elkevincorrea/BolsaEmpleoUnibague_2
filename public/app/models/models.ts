@@ -22,4 +22,5 @@ export class User {
     public identification: number;
     public Company: Company;
     public type: string;
+    public password: string;
 }
