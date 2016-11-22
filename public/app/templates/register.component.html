@@ -4,74 +4,81 @@
   <br>
   <div class="row">
      <div class="col-xs-10 col-xs-offset-1">
-         {{diagnostic}}
           <div role="tabpanel">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active nav-full"><a (click)="switch('graduate')" href="#sectiongraduado" aria-controls="#sectiongraduado" data-toggle="tab" role="tab">Graduado</a> </li>
                     <li role="presentation" class="nav-full"><a (click)="switch('company')" href="#sectionempresa" aria-controls="#sectionempresa" data-toggle="tab" role="tab">Empresa</a> </li>       
                 </ul>
-            
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="sectiongraduado">
                     <br>
-                    <form>
-                        <div class="form-group">
-                            <input type="text" name="id" class="form-control" placeholder="Identificacion" [(ngModel)]="user.identification">
+                    <form (ngSubmit)="submitGraduate()" #graduateForm="ngForm">
+                        <div class="form-group" [class.has-error]="identification.invalid && identification.touched">
+                            <input type="text" name="id" class="form-control" placeholder="Identificacion" required [(ngModel)]="user.identification" #identification="ngModel">
+                            <span class="help-block" *ngIf="identification.invalid && identification.touched">Ingrese una identificación válida</span>
                         </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" name="correo" [(ngModel)]="user.email" placeholder="Email">
+                        <div class="form-group" [class.has-error]="email.invalid && email.touched">
+                            <input type="email" class="form-control" name="correo" [(ngModel)]="user.email" #email="ngModel" required placeholder="Email" >
+                            <span class="help-block" *ngIf="email.invalid && email.touched">Ingrese un email válido</span>
                         </div>
-                        <div class="form-group">
-                            <input type="password" class="form-control" name="pass" [(ngModel)]="user.password" placeholder="Contraseña">
+                        <div class="form-group" [class.has-error]="password.invalid && password.touched">
+                            <input type="password" class="form-control" name="pass" [(ngModel)]="user.password" #password="ngModel" required placeholder="Contraseña">
+                            <span class="help-block" *ngIf="password.invalid && password.touched">Ingrese una contraseña válida</span>
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <input type="submit" (click)="submitGraduate()" class="btn btn-md btn-bolsa-empleo btn-block" name="crear" value="Registrarse">
+                                    <input type="submit" (click)="submitGraduate()" [disabled]="!graduateForm.form.valid" class="btn btn-md btn-bolsa-empleo btn-block" name="crear" value="Registrarse">
                                 </div>
                             </div>
                         </div>
-                        <span>{{succesMessage}}</span>
+                        <span class="help-block">{{succesMessage}}</span>
                     </form>
                 </div>
                 <!--Form para Empresa -->
                 <div role="tabpanel" class="tab-pane" id="sectionempresa">
                     <br>    
-                    <div class="form-group">
-                        <select class="form-control">
-                            <option value="">Seleccione un tipo de documento</option>
-                            <option value="1">Cedula</option>
-                            <option value="2">NIT</option>
+                    <form (ngSubmit)="submitCompany()" #companyForm="ngForm">
+                    <div class="form-group" [class.has-error]="idType.invalid && idType.touched">
+                        <select class="form-control" [(ngModel)]="user.Company.identification__type_id" name="id_type" required #idType="ngModel">
+                            <option value="null">Seleccione un tipo de documento</option>
+                            <option *ngFor="let idtype of idtypes" [value]="idtype.id">{{idtype.name}}</option>
                         </select>
-                        
-
+                        <span class="help-block" *ngIf="idType.invalid && idType.touched">Seleccione un tipo de identificación válido</span>
                     </div>
-                     <div class="form-group">
-                        <input type="text" name="id" class="form-control" placeholder="Identificacion">
+                     <div class="form-group" [class.has-error]="empIdentification.invalid && empIdentification.touched">
+                        <input type="text" name="id" class="form-control" [(ngModel)]="user.Company.identification" required #empIdentification="ngModel" placeholder="Identificacion">
+                        <span class="help-block" *ngIf="empIdentification.invalid && empIdentification.touched">Ingrese una identificación válida</span>
                      </div>
-                     <div class="form-group">
-                        <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                     <div class="form-group" [class.has-error]="name.invalid && name.touched">
+                        <input type="text" name="nombre" class="form-control" [(ngModel)]="user.Company.name" required #name="ngModel" placeholder="Nombre">
+                        <span class="help-block" *ngIf="name.invalid && name.touched">Ingrese un nombre válido</span>
                      </div>
-                      <div class="form-group">
-                        <input type="text" name="website" class="form-control" placeholder="Pagina web">
+                      <div class="form-group" [class.has-error]="website.invalid && website.touched">
+                        <input type="text" name="website" class="form-control" [(ngModel)]="user.Company.website" #website="ngModel" placeholder="Pagina web">
+                        <span class="help-block" *ngIf="website.invalid && website.touched">Ingrese una dirección válida</span>
                      </div>
-                      <div class="form-group">
-                        <input type="number" name="telefono" class="form-control" placeholder="Telefono">
+                      <div class="form-group" [class.has-error]="phone.invalid && phone.touched">
+                        <input type="number" name="telefono" class="form-control" [(ngModel)]="user.Company.phone" #phone="ngModel" placeholder="Telefono">
+                        <span class="help-block" *ngIf="phone.invalid && phone.touched">Ingrese un telefono válido</span>
                      </div>
-
-                     <div class="form-group">
-                        <input type="email" class="form-control" name="correo"  placeholder="Email">
+                     <div class="form-group" [class.has-error]="email.invalid && email.touched">
+                        <input type="email" class="form-control" name="correo" [(ngModel)]="user.email" #email="ngModel" required placeholder="Email">
+                        <span class="help-block" *ngIf="email.invalid && email.touched">Ingrese un email válido</span>
                     </div>
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="pass" placeholder="Contraseña">
+                    <div class="form-group" [class.has-error]="password.invalid && password.touched">
+                        <input type="password" class="form-control" name="pass" [(ngModel)]="user.password" #password="ngModel" required placeholder="Contraseña">
+                        <span class="help-block" *ngIf="password.invalid && password.touched">Ingrese una contraseña válida</span>
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
-                                <input type="submit" class="btn btn-md btn-bolsa-empleo btn-block" name="crear" value="Registrarse">
+                                <input type="submit" [disabled]="!companyForm.form.valid" class="btn btn-md btn-bolsa-empleo btn-block" name="crear" value="Registrarse">
                             </div>
                         </div>
                     </div>
+                    <span class="help-block">{{succesMessage}}</span>
+                    </form>
                </div>
                 <!--fin form para Empresa -->
             </div>
@@ -79,34 +86,3 @@
     </div>
 </div>
 </div>
-<!--<br>
-   <form>
-        <div class="form-group">
-            <div class="row ">
-                <div class="col-xs-6">
-                    <a type="button" class="btn btn-block btn-md btn-bolsa-empleo"><i class="fa fa-graduation-cap"> Graduado</i></a>
-                </div>
-                <div class="col-xs-6">
-                    <a type="button" class="btn btn-block btn-md btn-bolsa-empleo"><i class="fa fa-briefcase"> Empresa</i></a>
-
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <input type="text" name="id" class="form-control" placeholder="Identificacion">
-        </div>
-        <div class="form-group">
-            <input type="email" class="form-control" name="correo"  placeholder="Email">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" name="pass" placeholder="Contraseña">
-        </div>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <input type="submit" class="btn btn-md btn-bolsa-empleo btn-block" name="crear" value="Crear">
-                </div>
-            </div>
-                
-        </div>
-   </form> -->
