@@ -1,0 +1,45 @@
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Identificacion</th>
+                <th>Tipo Identificacion</th>
+                <th>Nombre</th>
+                <th>Pagina web</th>
+                <th>telefono</th>
+                <th>Estado</th>
+            </tr>
+        </thead> 
+        <tbody>
+            <tr *ngFor="let empresa of empresas">
+                <th>
+                    {{empresa.identificacion}}
+                </th>
+                <th>
+                    {{empresa.tipo_identificacion}}
+                </th>
+                <th>
+                    {{empresa.nombre}}
+                </th>
+                <th>
+                    {{empresa.pagina_web}}
+                </th>
+                <th>
+                    {{empresa.telefono}}
+                </th>
+                <th>
+                    <div *ngIf="empresa.estado">
+                         <span class="label label-success">Confirmada</span>
+                    </div> 
+                    <div *ngIf="!empresa.estado">
+                         <button type="button" class="btn btn-primary btn-sm">Confirmar</button>
+                    </div>
+                       
+                </th>
+
+            </tr>
+
+        </tbody>  
+
+    </table>
+</div>
