@@ -3,6 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { User }           from './../models/models.js';
 import { Observable }     from 'rxjs/Observable';
 import 'rxjs/Rx';
+import { AuthenticationService } from './authentication.service'
 
 @Injectable()
 export class UserService {
@@ -11,7 +12,7 @@ export class UserService {
     private userCompanyURL = '/bolsa-empleo/users/companies';
     private headers = new Headers({ 'Content-Type': 'application/json' });
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private authService: AuthenticationService) { }
 
     registerGraduateUser(user:User): Observable<User>{
         let options = new RequestOptions({ headers: this.headers });
