@@ -8,6 +8,7 @@ import 'rxjs/Rx';
 export class UserService {
 
     private userGraduateURL = '/bolsa-empleo/users/graduates';
+    private userCompanyURL = '/bolsa-empleo/users/companies';
     private headers = new Headers({ 'Content-Type': 'application/json' });
 
     constructor(private http: Http) { }
@@ -18,10 +19,16 @@ export class UserService {
                         .map(this.extractData)
                         .catch(this.handleError);
     }
+    registerCompanyUser(user:User): Observable<User>{
+        let options = new RequestOptions({ headers: this.headers });
+        return this.http.post(this.userCompanyURL, user, options)
+                        .map(this.extractData)
+                        .catch(this.handleError);
+    }
 
     private extractData(res: Response){
         let body = res.json();
-        return body.data || {};
+        return body || {};
     }
 
     private handleError(error: Response | any){
