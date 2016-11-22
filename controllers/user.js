@@ -110,6 +110,8 @@ var UserController = {
                     }
                 }
             })
+        }).catch(function(err) {
+            callback(err, null);
         });
     },
     getUserByEmail: function(email, callback) {

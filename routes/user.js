@@ -106,7 +106,7 @@ module.exports = [
                                 last_name: res.Person.last_name
                             }
                         });
-                        reply(token);
+                        reply({token: token});
                     }else{
                         reply(res);
                     }
