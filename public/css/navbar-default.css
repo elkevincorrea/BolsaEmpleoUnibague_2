@@ -1,4 +1,14 @@
 /* Top Navigation */
+.navbar-header>a{
+    color: #fff;
+    padding-top: 5px;
+}
+.navbar-header>a>.logo{
+    filter: brightness(50);
+    display: inline-block;
+    margin-right: 10px;
+}
+
 .top-nav {
     padding: 0 15px;
    
