@@ -20,6 +20,9 @@ module.exports = [
     {
         method: 'GET',
         path: '/bolsa-empleo/identification-types',
+        config: {
+            auth: false
+        },
         handler: function(request, reply) {
             idTypeController.getAll(function(err, res) {
                 if(err){
