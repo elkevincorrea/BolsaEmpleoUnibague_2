@@ -1,0 +1,34 @@
+<div class="table-responsive"> 
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+           <tr>
+               <th>Nombre Empresa</th>
+               <th>Cargo</th>
+               <th>Salario</th>
+               <th>Fecha Creacion</th>
+               <th>Fecha Finalizacion</th>
+           </tr>
+        </thead>
+        <tbody>
+             <tr *ngFor="let vacante of vacantes">
+                    <th>
+                        {{vacante.nombre_empresa}}
+                    </th>
+                    <th>
+                        {{vacante.cargo}}
+                    </th>
+                    <th>
+                        {{vacante.salario}}
+                    </th>
+                    <th>
+                        {{vacante.fecha_creacion}}
+                    </th>
+                    <th>
+                        {{vacante.fecha_finalizacion}}
+                    </th>
+            
+   
+            </tr>  
+        </tbody>
+    </table>
+</div>
