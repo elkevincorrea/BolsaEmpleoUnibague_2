@@ -36,6 +36,20 @@ export class AuthenticationService {
             });
     }
 
+    loginAdmin(identification: number, password: string): Observable<boolean> {
+        return this.http.post('/bolsa-empleo/auth/users/admin', { identification: identification, password: password })
+            .map((response: Response) => {
+                let token = response.json() && response.json().token;
+                if (token) {
+                    this.token = token;
+                    localStorage.setItem('currentUser', JSON.stringify({ identification: identification, user: 'admin', token: token }));
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+    }
+
     loginCompany(identification: number, password: string): Observable<boolean> {
         return this.http.post('/bolsa-empleo/auth/users/company', JSON.stringify({ identification: identification, password: password }))
             .map((response: Response) => {
