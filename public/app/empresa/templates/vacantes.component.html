@@ -1,0 +1,28 @@
+<div class="table-responsive"> 
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+           <tr>
+               <th>Fecha Creacion</th>
+               <th>Cargo</th>
+               <th>Salario</th>
+               <th>Fecha Finalizacion</th>
+           </tr>
+        </thead>
+        <tbody>
+             <tr *ngFor="let vacante of vacancies" role="button">
+                <th>
+                    {{vacante.created_at}}
+                </th>
+                <th>
+                    {{vacante.Job.name}}
+                </th>
+                <th>
+                    {{vacante.salary}}
+                </th>
+                <th>
+                    {{vacante.end_date}}
+                </th>
+            </tr>  
+        </tbody>
+    </table>
+</div>

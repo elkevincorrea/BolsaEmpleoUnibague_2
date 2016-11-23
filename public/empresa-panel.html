@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Bolsa de Empleo</title>
+    <base href="/empresa">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/loading.css">
@@ -17,13 +18,13 @@
 
     <!-- load our angular app with systemjs -->
     <script src="/assets/systemjs/dist/system.src.js"></script>
-    <script src="/js/systemjs.config.js"></script>
+    <script src="/js/systemjs.config.empresa.js"></script>
     <script>
         System.import('app').catch(function(err) { console.error(err); });
     </script>
 </head> 
 <body>
-    <landing-page>
+    <panel-empresa>
         <div>
             <div class="ball"></div>
             <div class="ball"></div>
@@ -33,7 +34,7 @@
             <div class="ball"></div>
             <div class="ball"></div>
         </div>
-    </landing-page>
+    </panel-empresa>
     
 
     <script src="/assets/css/bootstrap/js/jquery.js"></script>
