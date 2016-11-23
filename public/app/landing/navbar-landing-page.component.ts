@@ -51,4 +51,17 @@ export class NavbarLandingPageComponent implements OnInit{
                 });
         }
     }
+
+    loginAdmin(){
+        this.authService.loginAdmin(this.user.identification, this.user.password)
+                .subscribe(result => {
+                    if(result === true){
+                        console.log('Admin ok');
+                        window.location.href = '/admin';
+                    }else{
+                        this.error = 'Usuario o contraseña incorrecta';
+                        this.loading = false;
+                    }
+                });
+    }
 }
