@@ -22,6 +22,23 @@ module.exports = [
     },
     {
         method: 'POST',
+        path: '/bolsa-empleo/users/administrators',
+        config: {
+            auth: false
+        },
+        handler: function(request, reply) {
+            var user = request.payload;
+            userController.createAdmin(user, function(err, res) {
+                if(err){
+                    console.log(err);
+                    reply(err);
+                }else
+                    reply(res);
+            });
+        }
+    },
+    {
+        method: 'POST',
         path: '/bolsa-empleo/users/companies',
         config: {
             auth: false
@@ -101,6 +118,37 @@ module.exports = [
                         var token = Token.createToken({
                             email: res.email,
                             Graduate: {
+                                identification: res.Person.identification,
+                                first_name: res.Person.first_name,
+                                last_name: res.Person.last_name
+                            }
+                        });
+                        reply({token: token});
+                    }else{
+                        reply(res);
+                    }
+                    
+                }
+            })
+        }
+    },
+    {
+        method: 'POST',
+        path: '/bolsa-empleo/auth/users/admin',
+        config: {
+            auth: false
+        },
+        handler: function(request, reply) {
+            var user = request.payload;
+            userController.getAdminById(user, function(err, res) {
+                if(err){
+                    console.log('POST /bolsa-empleo/users/admin err:\n' + JSON.stringify(err));
+                    reply(err);
+                }else{
+                    if(res){
+                        var token = Token.createToken({
+                            email: res.email,
+                            Administrator: {
                                 identification: res.Person.identification,
                                 first_name: res.Person.first_name,
                                 last_name: res.Person.last_name
