@@ -311,12 +311,10 @@ navbar-default + .container{
   color: #01579b;
 }
 
-<<<<<<< HEAD
 table{
   background-color: white;
 }
 
-=======
 .nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover{
   color: #01579b;
 background-color: #f8c400;
@@ -334,7 +332,6 @@ background-color: #f8c400;
     color: #01579b;
 background-color: #f8c400;
 }
->>>>>>> origin/Frontend
 /*
 register-landing button{
 color: white; 
