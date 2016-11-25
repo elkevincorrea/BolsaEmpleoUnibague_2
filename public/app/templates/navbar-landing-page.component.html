@@ -12,6 +12,7 @@
         <div class="collapse navbar-collapse" id="navbar-1">
         
             <ul class="nav navbar-nav navbar-right ">
+                <li><a href="./secciones-index.html" class="a-bolsa-empleo" data-toggle="modal" >Acerca de</a></li>
                 <li><a  class="a-bolsa-empleo" href="#" data-toggle="modal" data-target="#login-modal">Ingresar</a></li>
                <!--<button type="button" class=" navbar-btn btn-lg "  data-toggle="modal" data-target="#login-modal">  Ingresar</button>-->
             </ul>
@@ -19,7 +20,7 @@
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">  <div class="modal-dialog">
             <div class="loginmodal-container">
                 <h1>Iniciar sesion como:</h1><br>
-                <form (ngSubmit)="login()">
+                <form (ngSubmit)="login()" novalidate>
                     <div class="btn-container">
                     <input type="radio" [(ngModel)]="user.type" value="graduate" name="tipo-usuario" id="graduado" checked hidden/>
                     <label for="graduado">Graduado</label>  
@@ -28,7 +29,12 @@
                     </div>
                <!--<button type="button" class="btn btn-navbar"><i class="fa fa-graduation-cap"> Graduado</i></button>
                     <button type="button" class="btn btn-navbar"><i class="fa fa-briefcase"> Empresa</i></button> <br>-->
-                    <input type="text" [(ngModel)]="user.identification" required name="user" placeholder="Identificacion">
+                    <div class="form-group" [class.has-error]="idLogin.invalid && idLogin.touched" >
+                         <input type="text"  [(ngModel)]="user.identification" required name="user" placeholder="Identificacion" #idLogin="ngModel">
+                         <span class="help-block" *ngIf="idLogin.invalid && idLogin.touched">Ingrese una identificación válida</span>
+                    </div>
+                   
+
                     <input type="password" [(ngModel)]="user.password" required name="pass" placeholder="Contraseña">
                     <input type="submit" name="login" class="login loginmodal-submit" value="Ingresar">
                 </form>
