@@ -62,13 +62,13 @@
                         <input type="number" name="telefono" class="form-control" [(ngModel)]="user.Company.phone" #phone="ngModel" placeholder="Telefono">
                         <span class="help-block" *ngIf="phone.invalid && phone.touched">Ingrese un telefono válido</span>
                      </div>
-                     <div class="form-group" [class.has-error]="email.invalid && email.touched">
-                        <input type="email" class="form-control" name="correo" [(ngModel)]="user.email" #email="ngModel" required placeholder="Email">
-                        <span class="help-block" *ngIf="email.invalid && email.touched">Ingrese un email válido</span>
+                     <div class="form-group" [class.has-error]="emailEmpresa.invalid && emailEmpresa.touched">
+                        <input type="email" class="form-control" name="correo" [(ngModel)]="user.email" #emailEmpresa="ngModel" required placeholder="Email">
+                        <span class="help-block" *ngIf="emailEmpresa.invalid && emailEmpresa.touched">Ingrese un email válido</span>
                     </div>
-                    <div class="form-group" [class.has-error]="password.invalid && password.touched">
-                        <input type="password" class="form-control" name="pass" [(ngModel)]="user.password" #password="ngModel" required placeholder="Contraseña">
-                        <span class="help-block" *ngIf="password.invalid && password.touched">Ingrese una contraseña válida</span>
+                    <div class="form-group" [class.has-error]="passwordEmpresa.invalid && passwordEmpresa.touched">
+                        <input type="password" class="form-control" name="pass" [(ngModel)]="user.password" #passwordEmpresa="ngModel" required placeholder="Contraseña">
+                        <span class="help-block" *ngIf="passwordEmpresa.invalid && passwordEmpresa.touched">Ingrese una contraseña válida</span>
                     </div>
                     <div class="form-group">
                         <div class="row">

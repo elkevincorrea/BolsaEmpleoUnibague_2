@@ -1,28 +1,35 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 
-navbar-landing-page .navbar .navbar-header .navbar-brand{
+navbar-landing-page .navbar .navbar-header .navbar-brand, #navbarSecciones .navbar-header .navbar-brand{
     padding: 0;
     border-radius: 0px;
     margin-bottom: 0px;
         
 }
 
-navbar-landing-page .navbar .navbar-default{
+navbar-landing-page .navbar-default, #navbarSecciones{
     border-radius: 0px;
 }
 
-navbar-landing-page #navbarBolsa{
+navbar-landing-page #navbarBolsa , #navbarSecciones{
     border-radius: 0px;         
-    background-color: white;
+    background-color: #05376c;
     margin-top: 0px;
     margin-bottom: 0px;
     /*height: 60px;*/
    
-    border-color: #01579b;
+   border-color: black;
     border-top: none;
     border-left: none;
     border-right: none;
+}
+
+.navbar-brand> img{
+      filter: brightness(12);
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 12px;
 }
 
 /*navbar-landing-page ul button{
@@ -41,8 +48,8 @@ navbar-landing-page #navbarBolsa{
 }
 
 
-.a-bolsa-empleo{
-  color: #01579b;
+ .navbar-default .navbar-nav > li > a{ 
+  color:white;
   
 }
 
@@ -57,7 +64,9 @@ box-shadow: 2px -5px 24px -3px rgba(128,143,135,0.48);
  .panel{
   border: 0;
   box-shadow: none;
-  padding: 10px 10px;
+  margin-top: 80px;
+  border-radius: 8px;
+  
  }
 
  /****** LOGIN MODAL ******/
@@ -179,8 +188,8 @@ box-shadow: 2px -5px 24px -3px rgba(128,143,135,0.48);
 body {
 /*width: 100%;*/
 /*height:auto;*/
-background-color: #ffffff;
-/*background-image: url('/assets/resources/desk.jpg');*/
+/*background-color: #ffffff;*/
+background-image: url('/assets/resources/u.jpg');
 background-position: center;
 background-size: cover;
 background-repeat:no-repeat;
@@ -189,6 +198,15 @@ background-attachment: fixed;
 
 body *{
   font-family: roboto, Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.section-heading{
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-top: 70px;
+
 }
 
 description h1{
@@ -201,10 +219,14 @@ padding-top: 100px;
 
 description .lead{
   font-size: 18px;
+  padding-left: 20px;
+  padding-right: 20px;
+
 }
 description p{
 font-size: 25px;
  font-family: 'Roboto';
+ padding-bottom: 20px;
 
 }
 description hr.style1{
@@ -221,11 +243,11 @@ register-landing h2{
 font-family: 'Roboto', sans-serif;
 text-align: left;
 color:  #01579b;
-padding-top: 50px;
-
-
-
+    padding-top: 20px;
+    padding-left: 41px;
 }
+
+
 
 .btn-bolsa-empleo{
   color: white;
@@ -260,6 +282,25 @@ navbar-default + .container{
 }
 }
 
+#myScrollspy{
+  background-color: white;
+   margin-top: 40px;
+   padding-left: 0px;
+   width: 15%;
+   marker-end: 10px;
+   border-radius: 8px;
+   padding-right: 0px;
+
+}
+#secciones{
+  background-color: white;
+  margin-top: 40px;
+     padding-left: 40px;
+     margin-left: 35px;
+     width: 80%;
+     border-radius: 8px;
+
+}
 
 /*
 register-landing button{

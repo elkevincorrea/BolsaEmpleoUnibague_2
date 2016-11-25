@@ -1,0 +1,39 @@
+<div class="tabla-responsive">      
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id Postulacion</th>
+                <th>Nombre Empresa</th>
+                <th>Cargo</th>
+                <th>Nombre Graduado</th>
+                <th>Estado</th>   
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let postulacion of postulaciones">
+                <th>
+                    {{ postulacion.id_postulacion}}
+                </th>
+                <th>
+                    {{postulacion.nombre_empresa}}
+                </th>
+                <th>
+                    {{postulacion.cargo}}
+                </th>
+                <th>
+                    {{postulacion.nombre_graduado}}
+                </th>
+                <th>
+                    <div *ngIf="postulacion.estado">
+                        <span class="label label-success">Activa</span>
+                    </div>
+                    <div *ngIf="!postulacion.estado">
+                        <span class="label label-warning">Rechazada</span>
+                    </div>
+
+                </th>
+
+            </tr>
+        </tbody>
+    </table>
+</div>

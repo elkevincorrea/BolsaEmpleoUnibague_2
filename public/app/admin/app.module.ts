@@ -8,11 +8,13 @@ import { NavbarDefaultComponent } from '../shared/navbar.component';
 import { GraduadosComponent }   from './graduados.component';
 import { EmpresasComponent }   from './empresas.component';
 import {VacantesComponent} from './vacantes.component';
+import {PostulacionesComponent} from'./postulaciones.component';
 
 @NgModule({
   imports:      [ BrowserModule, AdminRoutingModule ],
   declarations: [ 
-     AdminComponent, SideNavAdminComponent, NavbarTopComponent, NavbarDefaultComponent, GraduadosComponent, EmpresasComponent, VacantesComponent
+     AdminComponent, SideNavAdminComponent, NavbarTopComponent, NavbarDefaultComponent, 
+     GraduadosComponent, EmpresasComponent, VacantesComponent,PostulacionesComponent
   ],
   bootstrap:    [AdminComponent ]
 })

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Mas informacion</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/assets/css/bootstrap/css/bootstrap.min.css">
+         <link rel="stylesheet" href="/css/styles.css">
+         <link rel="stylesheet" href="/css/landing.css">
+         <link rel="shortcut icon" href="/assets/resources/favicon.ico" type="image/x-icon">   
+       
+    </head>
+    <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+      <nav class="navbar navbar-default" id="navbarSecciones">    
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+             </button>
+             <a  class="navbar-brand" href="#"><img src="/assets/resources/unibague.png" class="d-inline-block align-top"  width="auto" height="50px"  alt=""></a>
+        </div>      
+        <div class="collapse navbar-collapse" id="navbar-1">
+        
+            <ul class="nav navbar-nav navbar-right ">
+                <li><a href="/index.html" class="a-bolsa-empleo" data-toggle="modal">Inicio</a></li>
+                <li><a  class="a-bolsa-empleo" href="#" data-toggle="modal" data-target="#login-modal">Ingresar</a></li>
+               <!--<button type="button" class=" navbar-btn btn-lg "  data-toggle="modal" data-target="#login-modal">  Ingresar</button>-->
+            </ul>
+        
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">  <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>Iniciar sesion como:</h1><br>
+                <form (ngSubmit)="login()" novalidate>
+                    <div class="btn-container">
+                    <input type="radio" [(ngModel)]="user.type" value="graduate" name="tipo-usuario" id="graduado" checked hidden/>
+                    <label for="graduado">Graduado</label>  
+                    <input type="radio" [(ngModel)]="user.type" value="company" name="tipo-usuario" id="empresa" hidden/>
+                    <label for="empresa">Empresa</label> 
+                    </div>
+               <!--<button type="button" class="btn btn-navbar"><i class="fa fa-graduation-cap"> Graduado</i></button>
+                    <button type="button" class="btn btn-navbar"><i class="fa fa-briefcase"> Empresa</i></button> <br>-->
+                     <input type="text"  [(ngModel)]="user.identification" required name="user" placeholder="Identificacion" #idLogin="ngModel">
+        
+                    <input type="password" [(ngModel)]="user.password" required name="pass" placeholder="Contraseña">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Ingresar">
+                </form>
+                                
+                 <div class="login-help">
+                     <a href="#">Registrarse</a> - <a href="#">Olvido su Contraseña</a> - <a (click)="loginAdmin()">Soy administrador</a>
+                 </div>
+            </div>
+         </div>
+        </div>
+     </div>   
+    </div>
+</nav>
+        <!--secciones-->
+        <div class="container">
+            <div class="row">
+            <nav class="col-sm-3" id="myScrollspy">
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a data-toggle="tab" href="#section1">Quienes somos?</a></li>
+                    <li class="dropdown" ><a   class="dropdown-toggle" data-toggle="dropdown">Graduado <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a data-toggle="tab" href="#section2">Como postularse?</a></li>
+                            <li><a  data-toggle="tab" href="#estado">Como consultar el estado de mi postulacion?</a></li>
+                        </ul>
+                    </li>
+                     <li class="dropdown"><a class="dropdown-toggle " data-toggle="dropdown" >Empresa <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#section3" data-toggle="tab">Como registrarse?</a></li>
+                            <li><a href="#crearVacante" data-toggle="tab">Como crear una vacante?</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="col-sm-9 tab-content" id="secciones">
+                <div id="section1" class=" tab-pane active">
+                <h1>Section 1</h1>
+                <p>Try to scroll this page and look at the navigation list while scrolling!</p>
+                </div>
+                <div id="section2" class=" tab-pane " >
+                    <h1>Graduado</h1>
+                    <br>
+                    <h2>Como postularse?</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maiores, necessitatibus ullam velit recusandae at dolorum facilis, pariatur iste tenetur dolores est ad vel consequuntur aut voluptatem reiciendis. Iste, soluta.</p>
+                </div>
+                <div id="estado" class="tab-pane">
+                    <h1> Como consultar el estado de mi postulacion?</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor recusandae sed, numquam neque veniam ipsa nesciunt totam earum necessitatibus nisi aspernatur incidunt veritatis dolorem voluptate fuga. Corporis tenetur hic, accusantium.</p>
+                </div>
+                <div id="section3" class=" tab-pane " >
+                    <h1>Como registrarse?</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maiores, necessitatibus ullam velit recusandae at dolorum facilis, pariatur iste tenetur dolores est ad vel consequuntur aut voluptatem reiciendis. Iste, soluta.</p>
+                </div>
+                <div id="crearVacante" class=" tab-pane " >
+                    <h1>Como crear una vacante?</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maiores, necessitatibus ullam velit recusandae at dolorum facilis, pariatur iste tenetur dolores est ad vel consequuntur aut voluptatem reiciendis. Iste, soluta.</p>
+                </div>
+
+            </div>
+            </div>
+        </div>
+         <script src="/assets/css/bootstrap/js/jquery.js"></script>
+         <script src="/assets/css/bootstrap/js/bootstrap.min.js"></script>
+    </body>
+</html>
