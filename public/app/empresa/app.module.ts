@@ -6,13 +6,16 @@ import { NavbarTopComponent } from '../shared/navbar.top';
 import { NavbarDefaultComponent } from '../shared/navbar.component';
 import { CompanyComponent } from './panel.company.component';
 import { HomeComponent } from './home.component';
-import { VacantesComponent } from './vacantes.component'
+import { VacantesComponent } from './vacantes.component';
+import { VacancyDetailComponent } from './vacancy-detail.component';
+import { VacancyService } from './../services/vacancy.service';
 
 @NgModule({
   imports:      [ BrowserModule, CompanyRoutingModule ],
   declarations: [ 
-     CompanyComponent, SideNavCompanyComponent, NavbarTopComponent, NavbarDefaultComponent, HomeComponent, VacantesComponent
+     CompanyComponent, SideNavCompanyComponent, NavbarTopComponent, NavbarDefaultComponent, HomeComponent, VacantesComponent, VacancyDetailComponent
   ],
-  bootstrap:    [ CompanyComponent ]
+  bootstrap:    [ CompanyComponent ],
+  providers: [ VacancyService ]
 })
 export class AppModule { }

@@ -9,7 +9,7 @@
            </tr>
         </thead>
         <tbody>
-             <tr *ngFor="let vacante of vacancies" role="button">
+             <tr *ngFor="let vacante of vacancies" role="button" (click)="goToDetail(vacante)">
                 <th>
                     {{vacante.created_at}}
                 </th>

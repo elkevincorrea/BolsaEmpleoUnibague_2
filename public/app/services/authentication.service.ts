@@ -51,14 +51,13 @@ export class AuthenticationService {
     }
 
     loginCompany(identification: number, password: string): Observable<boolean> {
-        return this.http.post('/bolsa-empleo/auth/users/company', JSON.stringify({ identification: identification, password: password }))
+        return this.http.post('/bolsa-empleo/auth/users/company', { identification: identification, password: password })
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let token = response.json() && response.json().token;
                 if (token) {
                     // set token property
                     this.token = token;
- 
                     // store username and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify({ identification: identification, user: 'company', token: token }));
  
