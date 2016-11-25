@@ -12,19 +12,19 @@
         <tbody>
              <tr *ngFor="let vacante of vacantes">
                     <th>
-                        {{vacante.nombre_empresa}}
+                        {{vacante.Company.name}}
                     </th>
                     <th>
-                        {{vacante.cargo}}
+                        {{vacante.Job.name}}
                     </th>
                     <th>
-                        {{vacante.salario}}
+                        {{vacante.salary}}
                     </th>
                     <th>
-                        {{vacante.fecha_creacion}}
+                        {{vacante.created_at}}
                     </th>
                     <th>
-                        {{vacante.fecha_finalizacion}}
+                        {{vacante.end_date}}
                     </th>
             
    

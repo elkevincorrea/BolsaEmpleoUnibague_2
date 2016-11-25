@@ -30,7 +30,7 @@ export class VacantesComponent implements OnInit {
                 private router: Router) { }
 
     ngOnInit() {
-        this.vacancyService.getVacancies().then(vacancies => this.vacancies = vacancies);
+        this.vacancyService.getVacanciesCompany().then(vacancies => this.vacancies = vacancies);
      }
 
      goToDetail(vacancy: Vacancy) {

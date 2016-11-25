@@ -7,6 +7,9 @@ module.exports = [
     {
         method: 'GET',
         path: '/bolsa-empleo/companies',
+        config: {
+            auth: false
+        },
         handler: function(request, reply) {
             CompanyController.getAll(function(err, res) {
                 if(err){

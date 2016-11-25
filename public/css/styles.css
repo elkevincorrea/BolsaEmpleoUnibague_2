@@ -302,6 +302,10 @@ navbar-default + .container{
 
 }
 
+table{
+  background-color: white;
+}
+
 /*
 register-landing button{
 color: white; 

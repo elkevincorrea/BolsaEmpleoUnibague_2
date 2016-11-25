@@ -9,13 +9,16 @@ import { GraduadosComponent }   from './graduados.component';
 import { EmpresasComponent }   from './empresas.component';
 import {VacantesComponent} from './vacantes.component';
 import {PostulacionesComponent} from'./postulaciones.component';
+import { CompanyService } from './../services/companies.service';
+import { HttpModule, JsonpModule } from '@angular/http';
 
 @NgModule({
-  imports:      [ BrowserModule, AdminRoutingModule ],
+  imports:      [ BrowserModule, AdminRoutingModule, HttpModule, JsonpModule ],
   declarations: [ 
      AdminComponent, SideNavAdminComponent, NavbarTopComponent, NavbarDefaultComponent, 
      GraduadosComponent, EmpresasComponent, VacantesComponent,PostulacionesComponent
   ],
+  providers: [CompanyService],
   bootstrap:    [AdminComponent ]
 })
 export class AppModule { }

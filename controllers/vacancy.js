@@ -4,7 +4,9 @@ var models = require('../models');
 
 var VacancyController = {
     getAll: function(callback) {
-        models.Vacancy.findAll().then(function(res) {
+        models.Vacancy.findAll({
+            include: [models.Job, models.Company]
+        }).then(function(res) {
             callback(null, res);
         }).catch(function(err) {
             callback(err, null);

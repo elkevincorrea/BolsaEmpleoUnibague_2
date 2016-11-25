@@ -6,35 +6,34 @@
                 <th>Tipo Identificacion</th>
                 <th>Nombre</th>
                 <th>Pagina web</th>
-                <th>telefono</th>
+                <th>Telefono</th>
                 <th>Estado</th>
             </tr>
         </thead> 
         <tbody>
             <tr *ngFor="let empresa of empresas">
                 <th>
-                    {{empresa.identificacion}}
+                    {{empresa.identification}}
                 </th>
                 <th>
-                    {{empresa.tipo_identificacion}}
+                    {{empresa.Identification_Type.name}}
                 </th>
                 <th>
-                    {{empresa.nombre}}
+                    {{empresa.name}}
                 </th>
                 <th>
-                    {{empresa.pagina_web}}
+                    {{empresa.website}}
                 </th>
                 <th>
-                    {{empresa.telefono}}
+                    {{empresa.phone}}
                 </th>
                 <th>
-                    <div *ngIf="empresa.estado">
+                    <div *ngIf="empresa.confirmed">
                          <span class="label label-success">Confirmada</span>
                     </div> 
-                    <div *ngIf="!empresa.estado">
-                         <button type="button" class="btn btn-primary btn-sm">Confirmar</button>
+                    <div *ngIf="!empresa.confirmed">
+                         <button (click)="confirm(empresa)" type="button" class="btn btn-primary btn-sm">Confirmar</button>
                     </div>
-                       
                 </th>
 
             </tr>

@@ -5,6 +5,9 @@ var GraduateController = require('../controllers/graduate.js');
 module.exports = [
     {
         method: 'GET',
+        config: {
+            auth: false
+        },
         path: '/bolsa-empleo/graduates',
         handler: function(request, reply) {
             GraduateController.getAll(function(err, res) {

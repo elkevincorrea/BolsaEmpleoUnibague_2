@@ -9,10 +9,9 @@ export class Postulacion{
 }
 
 const POSTULACIONES: Postulacion[]=[
-
-{ id_postulacion:15, nombre_empresa:'Kvsndv', nombre_graduado:'Villa', cargo:'Ing Software', estado: true},
-{ id_postulacion:1, nombre_empresa:'asociados cds', nombre_graduado:'Camilo', cargo:'Ing industrial', estado: false}
-
+{ id_postulacion:15, nombre_empresa:'Playa Hawai', nombre_graduado:'Nicolas Villamil', cargo:'Desarrollador de Software', estado: true},
+{ id_postulacion:15, nombre_empresa:'Playa Hawai', nombre_graduado:'Kevin Joan Correa', cargo:'Desarrollador de Software', estado: true},
+{ id_postulacion:15, nombre_empresa:'Playa Hawai', nombre_graduado:'Jaime Alexander Bartolo', cargo:'Contador', estado: true}
 ]
 
 
