@@ -21,6 +21,16 @@ module.exports = [{
     },
     {
         method: 'GET',
+        path: '/info',
+        config: {
+            auth: false
+        },
+        handler: function(req, reply) {
+            reply.file('./public/secciones-index.html');
+        }
+    },
+    {
+        method: 'GET',
         path: '/{param*}',
         config: {
             auth: false
